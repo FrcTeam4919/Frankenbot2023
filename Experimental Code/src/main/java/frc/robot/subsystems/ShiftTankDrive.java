@@ -19,6 +19,9 @@ public class ShiftTankDrive extends SubsystemBase {
   private final PWMSparkMax m_leftDrive = new PWMSparkMax(0);
   private final PWMSparkMax m_rightDrive = new PWMSparkMax(1);
   private final DifferentialDrive m_drive = new DifferentialDrive(m_leftDrive, m_rightDrive);
+  // Drive train base is for a tank style mechanical build.
+
+  // Double Solenoids added for shifting the gear boxes on right and left side.
   private final DoubleSolenoid m_shifterL = new DoubleSolenoid(
     PneumaticsModuleType.CTREPCM,
     Constants.ShiftConstants.kSolenoidPorts[0], 
@@ -40,8 +43,9 @@ public class ShiftTankDrive extends SubsystemBase {
    */
   public void arcadeDrive(double fwd, double rot) {
     m_drive.arcadeDrive(fwd, rot);
-  }
+  } // Establish arcade drive.
 
+  // Actions for shifting between high and low speeds.
   public void shiftHigh() {
     m_shifterL.set(kForward);
     m_shifterR.set(kForward);

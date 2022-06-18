@@ -52,6 +52,7 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
+    // Toggle shift on one button.
     shift.toggleWhenPressed(new StartEndCommand(m_drive::shiftHigh, m_drive::shiftLow, m_drive));
   }
 

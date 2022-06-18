@@ -35,6 +35,7 @@ public class Drive extends CommandBase {
   public void initialize() {}
 
   // Called every time the scheduler runs while the command is scheduled.
+  // Controls drive base as arcade style drive.
   @Override
   public void execute() {
     m_drive.arcadeDrive(m_forward.getAsDouble(), m_rotation.getAsDouble());
