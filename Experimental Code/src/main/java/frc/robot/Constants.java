@@ -4,6 +4,11 @@
 
 package frc.robot;
 
+import edu.wpi.first.math.controller.SimpleMotorFeedforward;
+import edu.wpi.first.math.geometry.Translation2d;
+import edu.wpi.first.math.kinematics.MecanumDriveKinematics;
+import edu.wpi.first.math.trajectory.TrapezoidProfile;
+
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
  * constants. This class should not be used for any other purpose. All constants should be declared
@@ -18,4 +23,16 @@ public final class Constants {
         public static final int[] kSolenoidPorts = new int[] {0, 1, 2, 3};
          
      }
+
+    public static final class DriveConstants {
+        public static final int[] kFrontLeftEncoderPorts = new int[] {0, 1};
+        public static final int[] kRearLeftEncoderPorts = new int[] {2, 3};
+        public static final int[] kFrontRightEncoderPorts = new int[] {4, 5};
+        public static final int[] kRearRightEncoderPorts = new int[] {6, 7};
+
+        public static boolean kFrontLeftEncoderReversed = false;
+        public static boolean kFrontRightEncoderReversed = true;
+        public static boolean kRearLeftEncoderReversed = false;
+        public static boolean kRearRightEncoderReversed = true;
+    }
 }
