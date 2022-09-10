@@ -6,6 +6,7 @@ package frc.robot.commands;
 
 import frc.robot.subsystems.ShiftTankDrive;
 
+
 import java.util.function.DoubleSupplier;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
@@ -22,8 +23,8 @@ public class Drive extends CommandBase {
    *
    * @param subsystem The subsystem used by this command.
    */
-  public Drive(ShiftTankDrive subsystem, DoubleSupplier forward, DoubleSupplier rotation) {
-    m_drive = subsystem;
+  public Drive(ShiftTankDrive shiftDrive, DoubleSupplier forward, DoubleSupplier rotation) {
+    m_drive = shiftDrive;
     m_forward = forward;
     m_rotation = rotation;
     // Use addRequirements() here to declare subsystem dependencies.
