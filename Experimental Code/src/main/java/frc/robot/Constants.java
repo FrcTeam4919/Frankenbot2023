@@ -25,6 +25,17 @@ public final class Constants {
      }
 
     public static final class DriveConstants {
+
+        public static final int kFrontLeftDrive = 1;
+        public static final int kBackLeftDrive = 2;
+        public static final int kFrontRightDrive = 3;
+        public static final int kBackRightDrive = 4;
+
+        public static final int kFrontLeftSteer = 5;
+        public static final int kBackLeftSteer = 6;
+        public static final int kFrontRightSteer = 7;
+        public static final int kBackRightSteer = 8;
+
         public static final int[] kFrontLeftEncoderPorts = new int[] {0, 1};
         public static final int[] kRearLeftEncoderPorts = new int[] {2, 3};
         public static final int[] kFrontRightEncoderPorts = new int[] {4, 5};
