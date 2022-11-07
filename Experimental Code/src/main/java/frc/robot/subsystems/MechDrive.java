@@ -57,14 +57,14 @@ public class MechDrive extends SubsystemBase {
   // gyro
   private final Gyro m_gyro = new ADXRS450_Gyro();
 
-  MecanumDriveOdometry m_odometry = new MecanumDriveOdometry(DriveConstants.kDriveKinematics, m_gyro.getRotation2d());
+  //MecanumDriveOdometry m_odometry = new MecanumDriveOdometry(DriveConstants.kDriveKinematics, m_gyro.getRotation2d());
 
   public MechDrive() {
      // Sets the distance per pulse for the encoders
-     m_FrontLeftEncoder.setDistancePerPulse(DriveConstants.kEncoderDistancePerPulse);
-     m_RearLeftEncoder.setDistancePerPulse(DriveConstants.kEncoderDistancePerPulse);
-     m_FrontRightEncoder.setDistancePerPulse(DriveConstants.kEncoderDistancePerPulse);
-     m_RearRightEncoder.setDistancePerPulse(DriveConstants.kEncoderDistancePerPulse);
+     //m_FrontLeftEncoder.setDistancePerPulse(DriveConstants.kEncoderDistancePerPulse);
+     //m_RearLeftEncoder.setDistancePerPulse(DriveConstants.kEncoderDistancePerPulse);
+     //m_FrontRightEncoder.setDistancePerPulse(DriveConstants.kEncoderDistancePerPulse);
+     //m_RearRightEncoder.setDistancePerPulse(DriveConstants.kEncoderDistancePerPulse);
      // We need to invert one side of the drivetrain so that positive voltages
      // result in both sides moving forward. Depending on how your robot's
      // gearbox is constructed, you might have to invert the left side instead.
@@ -79,23 +79,23 @@ public class MechDrive extends SubsystemBase {
   @Override
   public void periodic() {
      // Update the odometry in the periodic block
-     m_odometry.update(
+     /*m_odometry.update(
         m_gyro.getRotation2d(),
         new MecanumDriveWheelSpeeds(
             m_FrontLeftEncoder.getRate(),
             m_RearLeftEncoder.getRate(),
             m_FrontRightEncoder.getRate(),
-            m_RearRightEncoder.getRate()));
+            m_RearRightEncoder.getRate()));*/
     // This method will be called once per scheduler run
   }
 
-  public Pose2d getPose() {
+  /*public Pose2d getPose() {
     return m_odometry.getPoseMeters();
   }
 
   public void resetOdometry(Pose2d pose) {
     m_odometry.resetPosition(pose, m_gyro.getRotation2d());
-  }
+  }*/
 
   /**
    *
