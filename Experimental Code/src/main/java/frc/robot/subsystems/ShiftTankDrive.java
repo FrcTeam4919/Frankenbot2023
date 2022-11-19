@@ -10,7 +10,7 @@ import static edu.wpi.first.wpilibj.DoubleSolenoid.Value.kReverse;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
-import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import frc.robot.Constants;
@@ -18,10 +18,10 @@ import frc.robot.Constants.DriveConstants;
 
 public class ShiftTankDrive extends SubsystemBase {
   /** Creates a new Shifting Tank Drive. */
-  private final VictorSP m_leftDrive1 = new VictorSP(DriveConstants.kFrontLeftDrive);
-  private final VictorSP m_leftDrive2 = new VictorSP(DriveConstants.kBackLeftDrive);
-  private final VictorSP m_rightDrive1 = new VictorSP(DriveConstants.kFrontRightDrive);
-  private final VictorSP m_rightDrive2 = new VictorSP(DriveConstants.kBackRightDrive);
+  private final WPI_VictorSPX m_leftDrive1 = new WPI_VictorSPX(DriveConstants.kFrontLeftDrive);
+  private final WPI_VictorSPX m_leftDrive2 = new WPI_VictorSPX(DriveConstants.kBackLeftDrive);
+  private final WPI_VictorSPX m_rightDrive1 = new WPI_VictorSPX(DriveConstants.kFrontRightDrive);
+  private final WPI_VictorSPX m_rightDrive2 = new WPI_VictorSPX(DriveConstants.kBackRightDrive);
   private final MotorControllerGroup m_leftDrive = new MotorControllerGroup(m_leftDrive1, m_leftDrive2);
   private final MotorControllerGroup m_rightDrive = new MotorControllerGroup(m_rightDrive1, m_rightDrive2);
   private final DifferentialDrive m_drive = new DifferentialDrive(m_leftDrive, m_rightDrive);
