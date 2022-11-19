@@ -10,9 +10,7 @@ import static edu.wpi.first.wpilibj.DoubleSolenoid.Value.kReverse;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.VictorSPX;
-import com.ctre.phoenix.motorcontrol.GroupMotorControllers;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import frc.robot.Constants;
@@ -20,19 +18,13 @@ import frc.robot.Constants.DriveConstants;
 
 public class ShiftTankDrive extends SubsystemBase {
   /** Creates a new Shifting Tank Drive. */
-  private final VictorSPX m_leftDrive1 = new VictorSPX(DriveConstants.kFrontLeftDrive);
-  private final VictorSPX m_leftDrive2 = new VictorSPX(DriveConstants.kBackLeftDrive);
-  private final VictorSPX m_rightDrive1 = new VictorSPX(DriveConstants.kFrontRightDrive);
-  private final VictorSPX m_rightDrive2 = new VictorSPX(DriveConstants.kBackRightDrive);
-
-  private class GroupMotorControllers{
-    static List<IMotorController> _ms = new ArrayList<IMotorController>();
-
-    private static void register(IMotorController m_leftDrive1);
-  } 
-  //m_leftDrive = new GroupMotorControllers(m_leftDrive1, m_leftDrive2);
-  //private final MotorControllerGroup m_rightDrive = new MotorControllerGroup(m_rightDrive1, m_rightDrive2);
-  private final DifferentialDrive m_drive = new DifferentialDrive(m_leftDrive1, m_rightDrive1);
+  private final WPI_VictorSPX m_leftDrive1 = new WPI_VictorSPX(DriveConstants.kFrontLeftDrive);
+  private final WPI_VictorSPX m_leftDrive2 = new WPI_VictorSPX(DriveConstants.kBackLeftDrive);
+  private final WPI_VictorSPX m_rightDrive1 = new WPI_VictorSPX(DriveConstants.kFrontRightDrive);
+  private final WPI_VictorSPX m_rightDrive2 = new WPI_VictorSPX(DriveConstants.kBackRightDrive);
+  private final MotorControllerGroup m_leftDrive = new MotorControllerGroup(m_leftDrive1, m_leftDrive2);
+  private final MotorControllerGroup m_rightDrive = new MotorControllerGroup(m_rightDrive1, m_rightDrive2);
+  private final DifferentialDrive m_drive = new DifferentialDrive(m_leftDrive, m_rightDrive);
   // Drive train base is for a tank style mechanical build.
 
   // Double Solenoids added for shifting the gear boxes on right and left side.
@@ -47,9 +39,7 @@ public class ShiftTankDrive extends SubsystemBase {
 
 
   public ShiftTankDrive() {
-    //m_rightDrive.setInverted(true);
-    //m_rightDrive2.changeControlMode(VictorSPX.ControlMode.Follower);
-    //m_rightDrive2.set(m_rightDrive1.getDeviceID());
+    m_rightDrive.setInverted(true);
   }
 
   /**
